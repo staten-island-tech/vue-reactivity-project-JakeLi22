@@ -1,7 +1,10 @@
 <template>
   <div class="title">
-    <h1>This is a new title</h1>
-    <button class="click-button">Clik me!</button>
+    <h1>Birthday Logger</h1>
+    <div class="birthday-data-div">
+
+    </div>
+    <button class="click-button">Add B-day!</button>
   </div>
   
 </template>
@@ -16,9 +19,5 @@
 </style>
 
 <script>
-data {
-  return {
-    dfs:j 'fdsf'
-  }
-}
+
 </script>
