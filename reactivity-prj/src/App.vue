@@ -26,9 +26,10 @@ emit to add a number to the cart(#)
 </style>
 
 <script>
+export as {
 data() {
   return {
     test: true,
   }
-};
+};}
 </script>
