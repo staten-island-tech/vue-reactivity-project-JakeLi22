@@ -1,33 +1,34 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <!-- <router-link to="/">Home</router-link> | -->
-      <router-link to="/about">Vue Project</router-link>
-      
+  <div id="container">
+    <h1 class="website-title">Battery Cells</h1>
+    <div class="cell-options">
+      <!-- 
+        img
+        list
+        cell name  
+        quantity
+        price
+
+
+       -->
     </div>
-    <router-view/>
+<button class="cart-button">Add to Cart</button>
+<!-- see cart
+emit to add a number to the cart(#)
+ -->
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+<style>
+.container{
+  background-color:red;
 }
 </style>
+
+<script>
+data() {
+  return {
+    test: true,
+  }
+};
+</script>
