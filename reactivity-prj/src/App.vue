@@ -15,9 +15,16 @@
        -->
     </div>
 <button class="cart-button">Add to Cart</button>
+<div class="quantity-div">
+  <button v-on:click = 'decreaseQuantity'
+  ref= 'test-1'
+  class="quantity-subtract-button">-</button>
+  <input class="quantityValue" type="number">
+  <button v-on:click = 'increaseQuantity'
+  class="quantity-add-button">+</button>
+</div>
 <!-- see cart
 emit to add a number to the cart(#)
-.value of the box and 
  -->
   </div>
 </template>
@@ -34,6 +41,7 @@ data(){
   return {
     cellType: "lithium-ion", 
     seller: "panasonic",
+   // quantity: 
     types: [
       {
         cellId: 1, 
@@ -56,7 +64,13 @@ data(){
 },
   methods: {
     increaseQuantity(){
-      //this.name of the element += 1
+      const quantity= $ref.test-1
+       this.$ref.test-1.value += 1;
+      
+      console.log('added');
+    },
+    decreaseQuantity(){
+      //this.name of the element -= 1
     }
 
 }
