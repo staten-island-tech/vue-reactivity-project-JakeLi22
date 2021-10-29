@@ -2,7 +2,6 @@
   <div id="container">
     <h1 class="website-title">Battery Cells</h1>
     <div class="cell-options">
-     
       <!-- 
         img
         list
@@ -10,19 +9,17 @@
         quantity 2 button with plus and minus
           v-on:click="name of the function"
         price
-
-
        -->
     </div>
-<button class="cart-button">Add to Cart</button>
-<div class="quantity-div">
-  <button v-on:click = 'decreaseQuantity'
-  ref= 'test-1'
-  class="quantity-subtract-button">-</button>
-  <input class="quantityValue" type="number">
-  <button v-on:click = 'increaseQuantity'
-  class="quantity-add-button">+</button>
-</div>
+<button v-on:click = 'addToCart' class = "cart-button">Add to Cart</button>
+    <div class="quantity-div">
+      <button v-on:click = 'decreaseQuantity'
+      class="quantity-subtract-button">-</button>
+      <input v-model='numberQuantity'
+      class="quantityValue" type="number">
+      <button v-on:click = 'increaseQuantity'
+      class="quantity-add-button">+</button>
+    </div>
 <!-- see cart
 emit to add a number to the cart(#)
  -->
@@ -30,9 +27,7 @@ emit to add a number to the cart(#)
 </template>
 
 <style>
-.container{
-  background-color:red;
-}
+
 </style>
 
 <script>
@@ -41,11 +36,11 @@ data(){
   return {
     cellType: "lithium-ion", 
     seller: "panasonic",
-   // quantity: 
+    numberQuantity: '',
     types: [
       {
         cellId: 1, 
-        cellName: "", 
+        cellName: "cell A", 
         details: ["mAh","V"],
         cellImage: "", 
         cellPrice:1, 
@@ -53,7 +48,7 @@ data(){
       },
       {
           cellId: 2, 
-        cellName: "", 
+        cellName: "cell B", 
         details: ["mAh","V"],
         cellImage: "", 
         cellPrice:2, 
@@ -63,16 +58,29 @@ data(){
   }
 },
   methods: {
-    increaseQuantity(){
-      const quantity= $ref.test-1
-       this.quantity.value += 1;
-      
-      console.log('added');
+      decreaseQuantity(){
+      const returnedNumber = parseInt(this.numberQuantity,10);
+      console.log('subtracted');
+      const subtracted = this.numberQuantity =  returnedNumber-1;
+      console.log(subtracted);
     },
-    decreaseQuantity(){
-      //this.name of the element -= 1
-    }
 
-}
+    increaseQuantity(){
+      const returnedNumber = parseInt(this.numberQuantity,10);
+      console.log('added');
+      const increased = this.numberQuantity =  returnedNumber+1;
+      console.log(increased);
+    },
+
+    addToCart(){
+      const inputBoxValue = parseInt(this.numberQuantity,10);
+      console.log(inputBoxValue);
+
+    },  
+    
+    priceCalculator(){
+      // const inputBoxValue = parseInt(this.numberQuantity,10)
+    },
+},
 }
 </script>
