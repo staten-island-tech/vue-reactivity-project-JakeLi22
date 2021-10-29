@@ -65,7 +65,7 @@ data(){
   methods: {
     increaseQuantity(){
       const quantity= $ref.test-1
-       this.$ref.test-1.value += 1;
+       this.quantity.value += 1;
       
       console.log('added');
     },
