@@ -35,23 +35,26 @@ export default {
 data(){
   return {
     cellType: "lithium-ion", 
-    seller: "panasonic",
-    numberQuantity: '',
+    numberQuantity: '10000',
     types: [
       {
         cellId: 1, 
-        cellName: "cell A", 
-        details: ["mAh","V"],
+        seller: "Sanyo",
+        cellModel: " NCR18650GA", 
+        details: ["3450mAh","3.6V"],
         cellImage: "", 
-        cellPrice:1, 
+        cellPrice: 6.75, 
+        cellWeight: "48g",
         
       },
       {
           cellId: 2, 
-        cellName: "cell B", 
-        details: ["mAh","V"],
+          seller: "Panasonic",
+        cellModel: "NCR18650BD", 
+        details: ["3180mAh","3.6V"],
         cellImage: "", 
-        cellPrice:2, 
+        cellPrice: 4.5, 
+        cellWeight: "46.4g",
         
       }
     ]
