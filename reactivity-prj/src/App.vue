@@ -2,6 +2,14 @@
   <div id="container">
     <h1 class="website-title">Battery Cells</h1>
     <div class="cell-options">
+      <img src="" alt="">
+      <h1>cell model</h1>
+      <h2>seller</h2>
+      <h2>price</h2>
+      <ul>
+        <li>details</li>
+      </ul>
+
       <!-- 
         img
         list
@@ -11,7 +19,7 @@
         price
        -->
     </div>
-<button v-on:click = 'addToCart' class = "cart-button">Add to Cart</button>
+
     <div class="quantity-div">
       <button v-on:click = 'decreaseQuantity'
       class="quantity-subtract-button">-</button>
@@ -20,6 +28,7 @@
       <button v-on:click = 'increaseQuantity'
       class="quantity-add-button">+</button>
     </div>
+    <button v-on:click = 'addToCart' class = "cart-button">Add to Cart</button>
 <!-- see cart
 emit to add a number to the cart(#)
  -->
@@ -34,27 +43,26 @@ emit to add a number to the cart(#)
 export default {
 data(){
   return {
+    returnedNumber: parseInt(this.numberQuantity,10), //set this is a global variable in data --> not working yet
     cellType: "lithium-ion", 
-    numberQuantity: '10000',
+    cellQuantity: '10000',
     types: [
       {
         cellId: 1, 
         seller: "Sanyo",
         cellModel: " NCR18650GA", 
-        details: ["3450mAh","3.6V"],
-        cellImage: "", 
+        details: ["3450mAh","3.6V", "48g"],
+        cellImage: "@/assests/img/red_cell.jpg", 
         cellPrice: 6.75, 
-        cellWeight: "48g",
         
       },
       {
           cellId: 2, 
           seller: "Panasonic",
         cellModel: "NCR18650BD", 
-        details: ["3180mAh","3.6V"],
-        cellImage: "", 
+        details: ["3180mAh","3.6V", "46.4g"],
+        cellImage: "@/assests/img/gray cell.jpg", 
         cellPrice: 4.5, 
-        cellWeight: "46.4g",
         
       }
     ]
