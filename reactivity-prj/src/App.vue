@@ -2,10 +2,11 @@
   <div id="container">
     <h1 class="website-title">Battery Cells</h1>
     <div class="cell-options">
-      <img src="" alt="">
-      <h1>cell model</h1>
-      <h2>seller</h2>
-      <h2>price</h2>
+      <img v-bind:src="{{img}}" alt="">
+      <h1>{{cellType}}</h1>
+      <h2>{{name}}</h2>
+      <h2>{{seller}}</h2>
+      <h2>{{price}}</h2>
       <ul>
         <li>details</li>
       </ul>
@@ -67,6 +68,21 @@ data(){
       }
     ]
   }
+},
+computed:{
+  name(){
+  return this.types[0].cellModel; //create a variable so that when you select something the id changes
+  },
+  seller(){
+    return this.types[0].seller;
+  },
+  price(){
+    return this.types[0].cellPrice;
+  },
+  img(){
+    return this.types[0].cellImage;
+  },
+
 },
   methods: {
       decreaseQuantity(){
