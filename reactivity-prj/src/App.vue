@@ -43,9 +43,9 @@ emit to add a number to the cart(#)
 export default {
 data(){
   return {
-    returnedNumber: parseInt(this.numberQuantity,10), //set this is a global variable in data --> not working yet
+    //returnedNumber: parseInt(this.numberQuantity,10), //set this is a global variable in data --> not working yet
     cellType: "lithium-ion", 
-    cellQuantity: '10000',
+    numberQuantity: '',
     types: [
       {
         cellId: 1, 
