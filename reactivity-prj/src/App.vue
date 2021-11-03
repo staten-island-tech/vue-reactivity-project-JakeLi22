@@ -2,11 +2,12 @@
   <div id="container">
     <h1 class="website-title">Battery Cells</h1>
     <div class="cell-options">
-      <img src="" alt="">
+      <img :src="require()" image alt="">
       <h1>{{cellType}}</h1>
       <h2>{{name}}</h2>
       <h2>{{seller}}</h2>
       <h2>{{price}}</h2>
+      <h2>{{img}}</h2>
       <ul>
         <li v-for="property in properties" :key="property">{{property}}</li>
       </ul>
@@ -55,7 +56,7 @@ data(){
         seller: "Sanyo",
         cellModel: " NCR18650GA", 
         details: ["3450mAh","3.6V", "48g"],
-        cellImage: "@/assests/img/red_cell.jpg", 
+        cellImage: " './img/red_cell.jpg' " , 
         cellPrice: 6.75, 
         
       },
@@ -64,7 +65,7 @@ data(){
           seller: "Panasonic",
         cellModel: "NCR18650BD", 
         details: ["3180mAh","3.6V", "46.4g"],
-        cellImage: "@/assests/img/gray cell.jpg", 
+        cellImage:   './img/gray cell.jpg', 
         cellPrice: 4.5, 
         
       }
@@ -82,7 +83,7 @@ computed:{
     return this.types[0].cellPrice;
   },
   img(){
-    return this.types[0].cellImage;
+    return   this.types[0].cellImage ;
   },
   properties(){
     return this.types[0].details;
@@ -112,10 +113,6 @@ computed:{
       console.log(newCartNumber);
 
     },  
-    
-    priceCalculator(){
-      // const inputBoxValue = parseInt(this.numberQuantity,10)
-    },
 },
 }
 </script>
