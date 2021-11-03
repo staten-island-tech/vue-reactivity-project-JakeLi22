@@ -1,19 +1,27 @@
 <template>
   <div id="container">
     <h1 class="website-title">Battery Cells</h1>
+    <div class="battery-info-div">
+      <img :src="image"  alt="" class="battery-img">
+      <div class="button-div">
+    <button class="red-button" v-on:click = 'clickRed'></button>
+    <button class="gray-button" v-on:click = 'clickGray'></button>
+      </div>
+    
     <div class="cell-options">
-      <img :src="image"  alt="" class="">
+      
       <h1>{{cellType}} battery</h1>
       <h2>model: {{name}}</h2>
       <h2>seller: {{seller}}</h2>
-      <h2>${{price}}</h2>
+      
       <ul>
         <li v-for="property in properties" :key="property.propertyid">{{property}}</li>
       </ul>
+      <h2>${{price}}</h2>
     </div>
-    <button class="red-button" v-on:click = 'clickRed'>red</button>
-    <button class="gray-button" v-on:click = 'clickGray'>gray</button>
-
+    
+</div>
+<div class="cart-div">
     <div class="quantity-div">
       <button v-on:click = 'decreaseQuantity'
       class="quantity-subtract-button">-</button>
@@ -24,11 +32,71 @@
     </div>
     <button v-on:click = 'addToCart' class = "cart-button">Add to Cart</button>
     <h3>Cart:{{cartNumber}}</h3>
+    </div>
 
   </div>
 </template>
 
 <style>
+.container{
+  display: flex;
+  flex-direction: column;
+
+}
+.battery-info-div{
+  display: flex;
+  flex-direction: row;
+  padding-top: 3rem;
+  padding-left: 3rem;
+}
+.button-div{
+  display:flex;
+  flex-direction: column;
+}
+.website-title{
+  text-align: center;
+}
+.battery-img{
+  border: 2px solid black;
+  width: 30vw
+}
+.cart-div{
+  padding-top: 2rem;
+}
+.red-button{
+  background-color:red;
+  border: none;
+  border-radius: 13px;
+  height: 3rem;
+  width: 3rem;
+  margin: 3px;
+  margin-top: 0;
+}
+.gray-button{
+   background-color:gray;
+  border: none;
+  border-radius: 13px;
+  height: 3rem;
+  width: 2.95rem;
+  margin: 3px;
+  margin-top: 0;
+}
+h1{
+  margin: 0;
+}
+
+.cell-options{
+  padding-left: 8rem;
+}
+.cart-div{
+  display: flex;
+  flex-direction: column;
+  margin-left: 50%;
+}
+.cart-button{
+  width: 5rem;
+  margin-top:10px;
+}
 
 </style>
 
