@@ -2,13 +2,13 @@
   <div id="container">
     <h1 class="website-title">Battery Cells</h1>
     <div class="cell-options">
-      <img v-bind:src="{{img}}" alt="">
+      <img src="" alt="">
       <h1>{{cellType}}</h1>
       <h2>{{name}}</h2>
       <h2>{{seller}}</h2>
       <h2>{{price}}</h2>
       <ul>
-        <li>details</li>
+        <li v-for="property in properties" :key="property">{{property}}</li>
       </ul>
 
       <!-- 
@@ -30,6 +30,7 @@
       class="quantity-add-button">+</button>
     </div>
     <button v-on:click = 'addToCart' class = "cart-button">Add to Cart</button>
+    <h3>Cart:{{cartNumber}}</h3>
 <!-- see cart
 emit to add a number to the cart(#)
  -->
@@ -47,6 +48,7 @@ data(){
     //returnedNumber: parseInt(this.numberQuantity,10), //set this is a global variable in data --> not working yet
     cellType: "lithium-ion", 
     numberQuantity: '',
+    cartNumber:0,
     types: [
       {
         cellId: 1, 
@@ -82,6 +84,10 @@ computed:{
   img(){
     return this.types[0].cellImage;
   },
+  properties(){
+    return this.types[0].details;
+  },
+  
 
 },
   methods: {
@@ -100,8 +106,10 @@ computed:{
     },
 
     addToCart(){
-      const inputBoxValue = parseInt(this.numberQuantity,10);
-      console.log(inputBoxValue);
+      const returnedNumber = parseInt(this.numberQuantity,10);
+      const newCartNumber = returnedNumber + this.cartNumber;
+      this.cartNumber = newCartNumber;
+      console.log(newCartNumber);
 
     },  
     
