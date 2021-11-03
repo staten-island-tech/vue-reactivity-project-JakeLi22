@@ -2,25 +2,17 @@
   <div id="container">
     <h1 class="website-title">Battery Cells</h1>
     <div class="cell-options">
-      <img :src="require()" image alt="">
-      <h1>{{cellType}}</h1>
-      <h2>{{name}}</h2>
-      <h2>{{seller}}</h2>
-      <h2>{{price}}</h2>
-      <h2>{{img}}</h2>
+      <img :src="image"  alt="">
+      <h1>{{cellType}} battery</h1>
+      <h2>model: {{name}}</h2>
+      <h2>seller: {{seller}}</h2>
+      <h2>${{price}}</h2>
       <ul>
-        <li v-for="property in properties" :key="property">{{property}}</li>
+        <li v-for="property in properties" :key="property.propertyid">{{property}}</li>
       </ul>
-
-      <!-- 
-        img
-        list
-        cell name  
-        quantity 2 button with plus and minus
-          v-on:click="name of the function"
-        price
-       -->
     </div>
+    <button class="red-button" v-on:click = 'clickRed'>red</button>
+    <button class="gray-button" v-on:click = 'clickGray'>gray</button>
 
     <div class="quantity-div">
       <button v-on:click = 'decreaseQuantity'
@@ -32,9 +24,7 @@
     </div>
     <button v-on:click = 'addToCart' class = "cart-button">Add to Cart</button>
     <h3>Cart:{{cartNumber}}</h3>
-<!-- see cart
-emit to add a number to the cart(#)
- -->
+
   </div>
 </template>
 
@@ -50,13 +40,15 @@ data(){
     cellType: "lithium-ion", 
     numberQuantity: '',
     cartNumber:0,
+    index:0,
+    image: require('./img/red_cell.jpg'),
+    
     types: [
       {
         cellId: 1, 
         seller: "Sanyo",
         cellModel: " NCR18650GA", 
         details: ["3450mAh","3.6V", "48g"],
-        cellImage: " './img/red_cell.jpg' " , 
         cellPrice: 6.75, 
         
       },
@@ -65,7 +57,6 @@ data(){
           seller: "Panasonic",
         cellModel: "NCR18650BD", 
         details: ["3180mAh","3.6V", "46.4g"],
-        cellImage:   './img/gray cell.jpg', 
         cellPrice: 4.5, 
         
       }
@@ -74,19 +65,16 @@ data(){
 },
 computed:{
   name(){
-  return this.types[0].cellModel; //create a variable so that when you select something the id changes
+  return this.types[this.index].cellModel; //create a variable so that when you select something the id changes
   },
   seller(){
-    return this.types[0].seller;
+    return this.types[this.index].seller;
   },
   price(){
-    return this.types[0].cellPrice;
-  },
-  img(){
-    return   this.types[0].cellImage ;
+    return this.types[this.index].cellPrice;
   },
   properties(){
-    return this.types[0].details;
+    return this.types[this.index].details;
   },
   
 
@@ -113,6 +101,26 @@ computed:{
       console.log(newCartNumber);
 
     },  
+    clickRed(){
+      this.index = 0;
+      if(this.index === 0){
+         this.image= require('./img/red_cell.jpg');
+      }
+      else if(this.index === 1){
+        this.image = require('./img/gray cell.jpg');
+      }
+    },
+    clickGray(){
+      this.index = 1;
+      if(this.index === 0){
+         this.image= require('./img/red_cell.jpg');
+      }
+      else if(this.index === 1){
+        this.image = require('./img/gray cell.jpg');
+      }
+
+    },
+
 },
 }
 </script>
