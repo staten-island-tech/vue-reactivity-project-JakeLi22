@@ -2,7 +2,7 @@
   <div id="container">
     <h1 class="website-title">Battery Cells</h1>
     <div class="cell-options">
-      <img :src="image"  alt="">
+      <img :src="image"  alt="" class="">
       <h1>{{cellType}} battery</h1>
       <h2>model: {{name}}</h2>
       <h2>seller: {{seller}}</h2>
